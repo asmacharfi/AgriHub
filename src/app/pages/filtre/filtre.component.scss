@@ -1,21 +1,20 @@
-// filter-page.component.scss
-$filter-bg: #f8f9fa; // Background color for filter sections
-$button-bg: #007bff; // Background color for buttons
-$button-color: white; // Text color for buttons
-$border-color: #dee2e6; // Border color for inputs and buttons
-$input-height: 38px; // Standard input height
+$filter-bg: #f8f9fa; 
+$button-bg: #1e6383; 
+$button-color: white;
+$border-color: #dee2e6; 
+$input-height: 24px;
 
 .filter-container {
     background-color: $filter-bg;
     border-radius: 4px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     padding: 20px;
-    max-width: 1000px; // or 100% for full width
+    max-width: 1000px; 
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // two columns
-    grid-template-rows: repeat(2, 1fr); // two rows
-    gap: 20px; // space between grid items
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 20px;
 
     .filter-section {
         display: grid;
@@ -37,10 +36,10 @@ $input-height: 38px; // Standard input height
             padding: 10px;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-height: 300px; // example height, adjust as needed
-            overflow-y: auto; // for scrollable lists in each category
-            border: 1px solid #ccc; // border color as per the image
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // soft shadow for depth
+            max-height: 300px; 
+            overflow-y: auto; 
+            border: 1px solid #ccc; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
             padding: 15px;
 
             h3 {
@@ -60,7 +59,6 @@ $input-height: 38px; // Standard input height
 
             button {
                 display: inline-block;
-                font-weight: 400;
                 color: $button-color;
                 text-align: center;
                 vertical-align: middle;
@@ -73,6 +71,9 @@ $input-height: 38px; // Standard input height
                 border-radius: 0.25rem;
                 margin-right: 5px;
                 cursor: pointer;
+                width: 100px;
+                height: 40px;
+                margin-bottom: 10px;
 
                 &:hover {
                     background-color: darken($button-bg, 7.5%);
@@ -90,14 +91,14 @@ $input-height: 38px; // Standard input height
             }
 
             .countries-list-container {
-                max-height: 200px; // Set a fixed height that works for your design
+                max-height: 200px;
                 overflow-y: auto;
-                border: 1px solid #dee2e6; // For a nice border around the scrollable area
+                border: 1px solid #dee2e6; 
                 border-radius: 4px;
             }
 
             .search-box {
-                margin-bottom: 10px; // space below the search box
+                margin-bottom: 10px;
             }
         }
     }
@@ -125,19 +126,19 @@ $input-height: 38px; // Standard input height
 .data-display-area {
     border: 1px solid #ccc;
     border-radius: 4px;
-    display: flex; // Use Flexbox for alignment
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    height: 400px; // Set a fixed height for the container
-    margin-top: 20px; // Space from the filters above
-    padding: 20px; // Inner spacing
-    text-align: center; // Center the text within the message box
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 400px; 
+    margin-top: 20px; 
+    padding: 20px; 
+    text-align: center; 
     background-color: white;
 
     .data-message {
         h2 {
-            font-size: 1.5em; // Large text for the header
-            margin-bottom: 0.5em; // Space below the header
+            font-size: 1.5em; 
+            margin-bottom: 0.5em;
 
         }
 
@@ -157,6 +158,6 @@ $input-height: 38px; // Standard input height
     }
 }
 .header{
-    background-color: #416D19;
+    background-color: #1e6383;
   }
     

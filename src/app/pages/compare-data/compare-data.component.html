@@ -1,0 +1,38 @@
+<div class="header pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="compare-data">
+  <div class="time-range-selector">
+    <label>Select a timerange:</label>
+    <input type="range" id="start-year" name="startYear" min="1961" max="2050">
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-group">
+      <label for="group-select">Groups:</label>
+      <select id="group-select" name="groups">
+        <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
+      </select>
+    </div>
+    <div class="filter-domain">
+      <label for="domain-select">Domains:</label>
+      <select id="domain-select" name="domains">
+        <option *ngFor="let domain of domains" [value]="domain">{{ domain }}</option>
+      </select>
+    </div>
+    <div class="filter-country">
+      <label for="country-select">Area:</label>
+      <select id="country-select" name="countries">
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button>Add Filter</button>
+    <button>Compare Data</button>
+  </div>
+</div>

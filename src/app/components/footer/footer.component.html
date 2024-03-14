@@ -1,19 +1,34 @@
 <footer class="footer">
-  <div class="row align-items-center justify-content-xl-between">
-    <div class="col-xl-6">
-      <div class="copyright text-center text-xl-left text-muted">
-        &copy; {{ test | date: "yyyy" }} <a href="#" class="font-weight-bold ml-1" target="_blank">AgriHub</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <ul class="footer-links">
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="#">Data protection and privacy</a></li>
+          <li><a href="#">Scam Alert</a></li>
+          <li><a href="#">Report Misconduct</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h5>FAO Departments and Offices</h5>
+        <ul class="footer-links">
+          <li><a href="#">Agriculture and Consumer Protection</a></li>
+          <li><a href="#">Climate, Biodiversity, Land and Water Department</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <h5>Follow us on</h5>
+        <div class="social-links">
+          <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
       </div>
     </div>
-    <div class="col-xl-6">
-      <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-        <li class="nav-item">
-          <a href="#" class="nav-link" target="_blank">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" target="_blank">Blog</a> 
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-12 text-center">
+        &copy; {{ test | date: "yyyy" }} <a href="#" class="font-weight-bold ml-1" target="_blank">AgriHub</a>
+      </div>
     </div>
   </div>
 </footer>

@@ -1,0 +1,39 @@
+.compare-data {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin-left: 40px;
+    margin-top: 30px;
+
+  }
+  
+  .time-range-selector {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group,
+  .filter-domain,
+  .filter-country {
+    margin-bottom: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #1e6383;
+  }
+  
+  .header{
+    background-color: #1e6383;
+  }
+    
