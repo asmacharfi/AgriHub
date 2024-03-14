@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { FiltreComponent } from './pages/filtre/filtre.component';
+import { InfoComponent } from './pages/info/info.component';
 
 const routes: Routes =[
   {
@@ -14,6 +15,7 @@ const routes: Routes =[
     pathMatch: 'full',
   },
   { path: 'filtre/:name', component: FiltreComponent },
+  { path: 'info/:name', component: InfoComponent },
    {
     path: '',
     component: AdminLayoutComponent,

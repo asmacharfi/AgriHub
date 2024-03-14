@@ -27,14 +27,14 @@
                       <summary>{{ subsection.title }}</summary>
                       <ul>
                         <li *ngFor="let item of subsection.content">
-                          <a [routerLink]="getUrlForItem(item)" target="_blank">{{ item.name }}</a>
+                          <a (click)="handleItemClick(item)" [routerLink]="['/filtre']" >{{ item.name }}</a>
                           <span *ngIf="item.revision" class="updated-date">{{ item.revision }}</span>
                         </li>
                       </ul>
                     </details>
                     <ul *ngIf="!subsection.title">
                       <li *ngFor="let item of subsection.content">
-                        <a [routerLink]="getUrlForItem(item)" target="_blank">{{ item.name }}</a>
+                        <a (click)="handleItemClick(item)" [routerLink]="['/filtre']" >{{ item.name }}</a>
                         <span *ngIf="item.revision" class="updated-date">{{ item.revision }}</span>
                       </li>
                     </ul>

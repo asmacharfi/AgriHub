@@ -36,8 +36,71 @@
     <button (click)="downloadData()">Download Data</button>
   </div>
 </div>
+
 <div class="data-display-area">
-  <div class="data-message">
+  <div *ngIf="fetchedData && fetchedData.length > 0">
+    <!-- Display fetched data here -->
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <!-- Table headers -->
+                <th>Domain</th>
+                <th>Area</th>
+                <th>Element</th>
+                <th>Item</th>
+                <th>Year</th>
+                <th>Unit</th>
+                <th>Value</th>
+                <th>Flag</th>
+                <th>Flag Description</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Loop through the data for the current page -->
+              <tr *ngFor="let item of currentPageData">
+                <!-- Table cells -->
+                <td>{{ item.domain }}</td>
+                <td>{{ item.area }}</td>
+                <td>{{ item.element }}</td>
+                <td>{{ item.item }}</td>
+                <td>{{ item.year }}</td>
+                <td>{{ item.unit }}</td>
+                <td>{{ item.value }}</td>
+                <td>{{ item.flag }}</td>
+                <td>{{ item.flagDescription }}</td>
+                <td>{{ item.note }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination controls -->
+    <nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" aria-label="Previous" (click)="previousPage()">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <a class="page-link" (click)="setCurrentPage(page)">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" aria-label="Next" (click)="nextPage()">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  </div>
+  <!-- Message when no data is available -->
+  <div *ngIf="!fetchedData || fetchedData.length === 0" class="data-message">
     <h2>Where is the data?</h2>
     <p>Please make a selection above and press <strong>Show Data</strong></p>
   </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SelectionService } from '../selection.service'; 
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-filtre',
   templateUrl: './filtre.component.html',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltreComponent implements OnInit {
   filters: any[];
-
-  constructor() {
+  receivedIndex: number;
+  fetchedData: any[];
+  currentPage = 1;
+  pageSize = 9; // Number of items per page
+  totalPages: number;
+  pages: number[] = [];
+  currentPageData: any[];
+  constructor(private selectionService: SelectionService,private http: HttpClient,private cdr: ChangeDetectorRef) {
     this.filters = [
       {
         key: 'countries',
@@ -41,12 +49,44 @@ export class FiltreComponent implements OnInit {
       
     ];
   }
+  updatePageData() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = Math.min(startIndex + this.pageSize, this.fetchedData.length);
+    this.currentPageData = this.fetchedData.slice(startIndex, endIndex);
 
+    // Calculate total number of pages
+    this.totalPages = Math.ceil(this.fetchedData.length / this.pageSize);
+    // Generate page numbers
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+  // Navigate to the previous page
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePageData();
+    }
+  }
+
+  // Navigate to the next page
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePageData();
+    }
+  }
+
+  // Set the current page
+  setCurrentPage(page: number) {
+    this.currentPage = page;
+    this.updatePageData();
+  }
   ngOnInit() {
     this.filters[0].items = this.getAllCountries();
     this.filters[1].items = this.getAllElements();
     this.filters[2].items = this.getAllItems();
     this.filters[3].items = this.getAllYears();
+    
   }
 
   getAllCountries() {
@@ -121,10 +161,36 @@ getAllYears() {
     filter.items[itemIndex].selected = !item.selected;
   }
 
-  showData() {
-    // Logic to display data based on filters
-  }
+  getData() {
+    this.selectionService.selectedItemIndex =  this.selectionService.selectedItemIndex;
+    let apiUrl = `http://localhost:8080/myapp/data?x1=${this.selectionService.selectedItemIndex}&`;
+    
+    // Append selected filter items to the API URL
+    this.filters.forEach((filter, index) => {
+      apiUrl += `x${index + 2}=${filter.items.filter(item => item.selected).map(item => item.label).join(',')}&`;
+    });
 
+    // Make API request
+    this.http.get(apiUrl).subscribe(
+      (response: any[]) => {
+        // Handle successful response
+        this.fetchedData = response;
+        this.updatePageData();
+        console.log('Fetched data:', this.fetchedData);
+        this.cdr.detectChanges();
+        
+      },
+      (error) => {
+        // Handle error
+        console.error('Error fetching data:', error);
+      }
+    );
+    
+  }
+  
+  showData() {
+    this.getData(); 
+  }
   downloadData() {
     // Logic to download data
   }

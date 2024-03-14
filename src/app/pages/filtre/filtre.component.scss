@@ -123,16 +123,27 @@ $input-height: 38px; // Standard input height
 }
 
 .data-display-area {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: flex; // Use Flexbox for alignment
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    height: 400px; // Set a fixed height for the container
-    margin-top: 20px; // Space from the filters above
-    padding: 20px; // Inner spacing
-    text-align: center; // Center the text within the message box
-    background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 600px; // Adjust as needed
+  overflow-y: auto;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+
+  .table-responsive {
+    overflow-y: auto;
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+
 
     .data-message {
         h2 {
