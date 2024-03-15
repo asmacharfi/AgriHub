@@ -1,0 +1,14 @@
+<div class="header pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="countries-container">
+  <div *ngFor="let letter of getSortedLetters()" class="country-column">
+    <h2>{{ letter }}</h2>
+    <ul>
+      <li *ngFor="let country of countriesByLetter[letter]">{{ country }}</li>
+    </ul>
+  </div>
+</div>
