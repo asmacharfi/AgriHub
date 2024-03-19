@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ClipboardModule } from 'ngx-clipboard';
 
+
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { InfoComponent } from '../../pages/info/info.component';
@@ -38,3 +39,14 @@ import { CompareComponent } from 'src/app/pages/compare-data/compare-data.compon
 })
 
 export class AdminLayoutModule {}
+// group-domain.model.ts
+
+export interface Group {
+  name: string;
+  domains: Domain[];
+}
+
+export interface Domain {
+  name: string;
+  areas: string[];
+}
