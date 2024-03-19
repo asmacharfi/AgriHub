@@ -55,38 +55,50 @@
   font-size: 14px; /* Adjust as needed */
 }
 
-
 .filter-container {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px; /* Adjust based on your design */
-  margin: auto;
+  flex-direction: row; /* Align children in a row */
+  justify-content: flex-start; /* Align children to the start of the container */
+  align-items: center; /* Align children vertically in the center */
+  gap: 10px; /* Space between the filter groups */
+  width: 100%; /* Full width of the container */
 }
 
 .filter-group {
-  margin-bottom: 15px;
+  flex-grow: 0; /* Do not allow the filter groups to grow */
+  margin-bottom: 15px; /* Space at the bottom of each filter group */
+  margin-left: 10px;
 }
 
 .filter-group label {
-  display: block;
+  margin-bottom: 5px; /* Space between label and select box */
 }
 
 .filter-group select {
-  width: 100%;
   padding: 10px;
-  font-size: 16px; /* Larger font for mobile readability */
+  font-size: 16px; /* Larger font for readability */
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: auto; /* Auto width based on content */
 }
 
-@media (max-width: 768px) {
-  /* Adjustments for mobile screens */
+/* Ensure the selects are not too wide on larger screens */
+@media (min-width: 768px) {
   .filter-group select {
-    font-size: 18px; /* Even larger font for mobile readability */
+    max-width: 200px; /* Maximum width of select boxes */
   }
 }
 
-  .header{
-    background-color: #1e6383;
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column; /* Stack the filter groups on top of each other */
   }
+  .filter-group select {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+.header {
+  background-color: #1e6383;
+}

@@ -10,6 +10,7 @@ export class CompareComponent {
     lower: 1961,
     upper: 2050
   };
+ 
   groups: Group[] = [
     {
       name: 'Land, Inputs and Sustainability',
@@ -37,10 +38,9 @@ export class CompareComponent {
   selectedGroup: Group | null = null;
   selectedDomain: Domain | null = null;
 
-  onGroupChange() { 
+  onGroupChange() {
     this.selectedDomain = null; // Reset domain when group changes
   }
-  
 
   onDomainChange() {
     // Handle logic when domain changes, if necessary
@@ -87,10 +87,4 @@ export interface Domain {
   name: string;
   areas: string[];
 }
-
-
-
-
-
-
 
