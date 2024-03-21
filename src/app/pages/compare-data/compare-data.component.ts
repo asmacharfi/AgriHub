@@ -87,4 +87,3 @@ export interface Domain {
   name: string;
   areas: string[];
 }
-

@@ -1,3 +1,4 @@
+$filter-bg: #f8f9fa; 
 .slider-container {
   position: relative;
   width: 100%;
@@ -56,12 +57,16 @@
 }
 
 .filter-container {
+  background-color: $filter-bg;
   display: flex;
   flex-direction: row; /* Align children in a row */
   justify-content: flex-start; /* Align children to the start of the container */
   align-items: center; /* Align children vertically in the center */
   gap: 10px; /* Space between the filter groups */
   width: 100%; /* Full width of the container */
+}
+.filter-container .bg{
+  background-color: #ccc;
 }
 
 .filter-group {
