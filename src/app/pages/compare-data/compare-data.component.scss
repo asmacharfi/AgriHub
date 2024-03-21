@@ -1,39 +1,109 @@
-.compare-data {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    margin-left: 40px;
-    margin-top: 30px;
+$filter-bg: #f8f9fa; 
+.slider-container {
+  position: relative;
+  width: 100%;
+}
 
+.slider {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  width: 100%;
+  background: transparent; /* Slider is invisible */
+  position: absolute;
+  z-index: 2; /* Slider should be above track but below thumb for better UX */
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  z-index: 3; /* Thumb is above slider */
+  width: 25px; /* Thumb size */
+  height: 25px;
+  border: 1px solid #000; /* Thumb border */
+  background: #fff; /* Thumb color */
+  cursor: pointer;
+  border-radius: 50%; /* Circular thumb */
+  margin-top: -10px; /* Adjust this to fit the thumb with the track */
+}
+
+
+.slider-track {
+  position: absolute;
+  width: 100%;
+  height: 10px; /* Match this height with the range */
+  background: #ddd; /* Background of the track */
+  border-radius: 5px; /* Optional: rounded corners for the track */
+  z-index: 1; /* Below thumbs */
+}
+
+.slider-range {
+  position: absolute;
+  height: 10px; /* Height of the selected range */
+  background: #007bff; /* Background of the selected range */
+  border-radius: 5px; /* Optional: rounded corners for the range */
+  z-index: 1; /* Below thumbs */
+}
+
+.year-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px; /* Adjust as needed */
+}
+
+.year-labels span {
+  font-size: 14px; /* Adjust as needed */
+}
+
+.filter-container {
+  background-color: $filter-bg;
+  display: flex;
+  flex-direction: row; /* Align children in a row */
+  justify-content: flex-start; /* Align children to the start of the container */
+  align-items: center; /* Align children vertically in the center */
+  gap: 10px; /* Space between the filter groups */
+  width: 100%; /* Full width of the container */
+}
+.filter-container .bg{
+  background-color: #ccc;
+}
+
+.filter-group {
+  flex-grow: 0; /* Do not allow the filter groups to grow */
+  margin-bottom: 15px; /* Space at the bottom of each filter group */
+  margin-left: 10px;
+}
+
+.filter-group label {
+  margin-bottom: 5px; /* Space between label and select box */
+}
+
+.filter-group select {
+  padding: 10px;
+  font-size: 16px; /* Larger font for readability */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: auto; /* Auto width based on content */
+}
+
+/* Ensure the selects are not too wide on larger screens */
+@media (min-width: 768px) {
+  .filter-group select {
+    max-width: 200px; /* Maximum width of select boxes */
   }
-  
-  .time-range-selector {
-    margin-bottom: 20px;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column; /* Stack the filter groups on top of each other */
   }
-  
-  .filter-section {
-    display: flex;
-    flex-direction: column;
+  .filter-group select {
+    width: 100%; /* Full width on small screens */
   }
-  
-  .filter-group,
-  .filter-domain,
-  .filter-country {
-    margin-bottom: 10px;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  button {
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #1e6383;
-  }
-  
-  .header{
-    background-color: #1e6383;
-  }
-    
+}
+
+.header {
+  background-color: #1e6383;
+}

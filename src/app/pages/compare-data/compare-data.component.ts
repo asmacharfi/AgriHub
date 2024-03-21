@@ -6,28 +6,84 @@ import { Component } from '@angular/core';
   styleUrls: ['./compare-data.component.scss']
 })
 export class CompareComponent {
-  groups = ['Forestry',"Land, Inputs and Sustainability","Climate Change: Agrifood systems emissions"] ;
-  domains = ['Forestry Production and Trade'];
-  countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria',
-  'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
-  'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia',
-  'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica',
-  'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt',
-  'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
-  'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana',
-  'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel',
-  'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea (North)', 'Korea (South)', 'Kosovo',
-  'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania',
-  'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
-  'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia',
-  'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman',
-  'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal',
-  'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe',
-  'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia',
-  'South Africa', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan',
-  'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan',
-  'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City',
-  'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'];
+  yearRange = {
+    lower: 1961,
+    upper: 2050
+  };
+ 
+  groups: Group[] = [
+    {
+      name: 'Land, Inputs and Sustainability',
+      domains: [
+        // Populate this with the relevant domains and areas for this group
+        { name: 'Domain 1', areas: ['Area 1.1', 'Area 1.2'] },
+        { name: 'Domain 2', areas: ['Area 2.1', 'Area 2.2'] }
+      ]
+    },
+    {
+      name: 'Forestry',
+      domains: [
+        // Populate this with the relevant domains and areas for this group
+        { name: 'Forest Domain 1', areas: ['Forest Area 1.1', 'Forest Area 1.2'] }
+      ]
+    },
+    {
+      name: 'Climate Change: Agrifood systems emissions',
+      domains: [
+        // Populate this with the relevant domains and areas for this group
+        { name: 'Emissions Domain 1', areas: ['Emission Area 1.1', 'Emission Area 1.2'] }
+      ]
+    }
+  ];
+  selectedGroup: Group | null = null;
+  selectedDomain: Domain | null = null;
 
-  constructor() { }
+  onGroupChange() {
+    this.selectedDomain = null; // Reset domain when group changes
+  }
+
+  onDomainChange() {
+    // Handle logic when domain changes, if necessary
+  }
+  // Fonction pour lancer la comparaison des données
+  compareData() {
+    // Implémenter la logique de comparaison
+  }
+
+    // Ajoutez cette méthode
+    onInput(value: string, slider: string) {
+      const intValue = parseInt(value, 10);
+      if (slider === 'lower') {
+        this.yearRange.lower = intValue;
+        // Ajouter une vérification pour ne pas dépasser la valeur supérieure
+        if (this.yearRange.lower > this.yearRange.upper) {
+          this.yearRange.lower = this.yearRange.upper;
+        }
+      } else if (slider === 'upper') {
+        this.yearRange.upper = intValue;
+        // Ajouter une vérification pour ne pas aller en dessous de la valeur inférieure
+        if (this.yearRange.upper < this.yearRange.lower) {
+          this.yearRange.upper = this.yearRange.lower;
+        }
+      }
+    }
+    getLeftPercent(): number {
+      return ((this.yearRange.lower - 1961) / (2050 - 1961)) * 100;
+    }
+  
+    getRightPercent(): number {
+      return ((2050 - this.yearRange.upper) / (2050 - 1961)) * 100;
+    }
+
+  
+ 
+}
+export interface Group {
+  name: string;
+  domains: Domain[];
+}
+
+export interface Domain {
+  name: string;
+  areas: string[];
 }

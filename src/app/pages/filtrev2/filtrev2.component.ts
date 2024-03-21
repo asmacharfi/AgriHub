@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { SelectionService } from '../selection.service'; 
+// filtrev2.component.ts
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef } from '@angular/core';
+import { SelectionService } from '../selection.service';
+
 @Component({
-  selector: 'app-filtre',
-  templateUrl: './filtre.component.html',
-  styleUrls: ['./filtre.component.scss']
+  selector: 'app-filtrev2',
+  templateUrl: './filtrev2.component.html',
+  styleUrls: ['./filtrev2.component.scss']
 })
-export class FiltreComponent implements OnInit {
+export class Filtrev2Component implements OnInit {
   filters: any[];
   receivedIndex: number;
   fetchedData: any[];
@@ -121,7 +122,7 @@ export class FiltreComponent implements OnInit {
   }
   getAllItems() {
     return [
-      'CountryArea', 'Land area', 'Agriculture', 'Forestland', 'Other land', 'Water', 'Irrigation', 'Agricultural practices', 'Aquaculture and Fisheries', 'Archive data'
+      'Country area', 'Land area', 'Agriculture', 'Forestland', 'Other land', 'Water', 'Irrigation', 'Agricultural practices', 'Aquaculture and Fisheries', 'Archive data'
     ].map(name => ({ label: name, selected: false }));
   }
 

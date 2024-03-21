@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ClipboardModule } from 'ngx-clipboard';
 
+
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { InfoComponent } from '../../pages/info/info.component';
@@ -15,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FiltreComponent } from 'src/app/pages/filtre/filtre.component';
 import { IndicatorsComponent } from 'src/app/pages/indicators/indicators.component';
 import { CompareComponent } from 'src/app/pages/compare-data/compare-data.component';
+import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
+import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -33,8 +36,21 @@ import { CompareComponent } from 'src/app/pages/compare-data/compare-data.compon
     FiltreComponent,
     IndicatorsComponent,
     CompareComponent,
+    VisualizationComponent,
+    Filtrev2Component,
     MapsComponent
   ]
 })
 
 export class AdminLayoutModule {}
+// group-domain.model.ts
+
+export interface Group {
+  name: string;
+  domains: Domain[];
+}
+
+export interface Domain {
+  name: string;
+  areas: string[];
+}
