@@ -1,109 +1,116 @@
-$filter-bg: #f8f9fa; 
+/* Variables */
+$filter-bg: #f8f9fa;
+
+/* General Styles */
+.header {
+  background-color: #1e6383;
+}
+
+/* Slider Styles */
 .slider-container {
   position: relative;
   width: 100%;
 }
 
 .slider {
-  -webkit-appearance: none; /* Override default appearance */
   appearance: none;
   width: 100%;
-  background: transparent; /* Slider is invisible */
+  background: transparent;
   position: absolute;
-  z-index: 2; /* Slider should be above track but below thumb for better UX */
+  z-index: 2;
   outline: none;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
   appearance: none;
   position: relative;
-  z-index: 3; /* Thumb is above slider */
-  width: 25px; /* Thumb size */
+  z-index: 3;
+  width: 25px;
   height: 25px;
-  border: 1px solid #000; /* Thumb border */
-  background: #fff; /* Thumb color */
+  border: 1px solid #000;
+  background: #fff;
   cursor: pointer;
-  border-radius: 50%; /* Circular thumb */
-  margin-top: -10px; /* Adjust this to fit the thumb with the track */
+  border-radius: 50%;
+  margin-top: -10px;
 }
 
-
-.slider-track {
+.slider-track,
+.slider-range {
   position: absolute;
   width: 100%;
-  height: 10px; /* Match this height with the range */
-  background: #ddd; /* Background of the track */
-  border-radius: 5px; /* Optional: rounded corners for the track */
-  z-index: 1; /* Below thumbs */
+  height: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.slider-track {
+  background: #ddd;
 }
 
 .slider-range {
-  position: absolute;
-  height: 10px; /* Height of the selected range */
-  background: #007bff; /* Background of the selected range */
-  border-radius: 5px; /* Optional: rounded corners for the range */
-  z-index: 1; /* Below thumbs */
+  background: #007bff;
 }
 
+/* Year Labels */
 .year-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 35px; /* Adjust as needed */
+  margin-top: 35px;
 }
 
 .year-labels span {
-  font-size: 14px; /* Adjust as needed */
+  font-size: 14px;
 }
 
+/* Filter Container */
 .filter-container {
   background-color: $filter-bg;
   display: flex;
-  flex-direction: row; /* Align children in a row */
-  justify-content: flex-start; /* Align children to the start of the container */
-  align-items: center; /* Align children vertically in the center */
-  gap: 10px; /* Space between the filter groups */
-  width: 100%; /* Full width of the container */
-}
-.filter-container .bg{
-  background-color: #ccc;
+  flex-wrap: wrap; /* Allow flex items to wrap */
+  gap: 10px;
+  padding: 15px; /* Add padding for spacing */
+  border: 3px;
 }
 
 .filter-group {
-  flex-grow: 0; /* Do not allow the filter groups to grow */
-  margin-bottom: 15px; /* Space at the bottom of each filter group */
-  margin-left: 10px;
+  flex-grow: 0;
+  margin-bottom: 15px;
 }
 
 .filter-group label {
-  margin-bottom: 5px; /* Space between label and select box */
+  margin-bottom: 5px;
 }
 
 .filter-group select {
   padding: 10px;
-  font-size: 16px; /* Larger font for readability */
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: auto; /* Auto width based on content */
+  width: auto;
+  max-width: 200px; /* Limit max width for select boxes */
+}
+.filter-container {
+  position: relative;
 }
 
-/* Ensure the selects are not too wide on larger screens */
-@media (min-width: 768px) {
-  .filter-group select {
-    max-width: 200px; /* Maximum width of select boxes */
-  }
+.remove-filter-button {
+  position: absolute;
+  top: 5px; /* Ajustez la position verticale selon votre mise en page */
+  right: 5px; /* Ajustez la position horizontale selon votre mise en page */
 }
 
-/* Adjustments for mobile screens */
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .filter-container {
-    flex-direction: column; /* Stack the filter groups on top of each other */
+    padding: 10px; /* Adjust padding for smaller screens */
   }
-  .filter-group select {
-    width: 100%; /* Full width on small screens */
-  }
-}
 
-.header {
-  background-color: #1e6383;
+  .filter-group {
+    margin-left: 0; /* Remove left margin on small screens */
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
 }
