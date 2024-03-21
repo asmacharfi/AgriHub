@@ -16,6 +16,7 @@ import { CompareComponent } from 'src/app/pages/compare-data/compare-data.compon
 import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
 // import { ToastrModule } from 'ngx-toastr';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +39,7 @@ import { VisualizationComponent } from 'src/app/pages/visualization/visualizatio
 })
 
 export class AdminLayoutModule {}
-// group-domain.model.ts
+
 
 export interface Group {
   name: string;
