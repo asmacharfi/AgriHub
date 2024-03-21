@@ -121,7 +121,7 @@ export class FiltreComponent implements OnInit {
   }
   getAllItems() {
     return [
-      'CountryArea', 'Land area', 'Agriculture', 'Forestland', 'Other land', 'Water', 'Irrigation', 'Agricultural practices', 'Aquaculture and Fisheries', 'Archive data'
+      'Country area', 'Land area', 'Agriculture', 'Forest land', 'Other land', 'Water', 'Irrigation', 'Agricultural practices', 'Aquaculture and Fisheries', 'Archive data'
     ].map(name => ({ label: name, selected: false }));
   }
 
