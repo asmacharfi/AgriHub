@@ -15,6 +15,7 @@ import { IndicatorsComponent } from 'src/app/pages/indicators/indicators.compone
 import { CompareComponent } from 'src/app/pages/compare-data/compare-data.component';
 import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
 import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
+import { DataTabsComponent } from 'src/app/pages/data-tabs/data-tabs.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
     CompareComponent,
     VisualizationComponent,
     Filtrev2Component,
+    DataTabsComponent,
     MapsComponent
   ]
 })
