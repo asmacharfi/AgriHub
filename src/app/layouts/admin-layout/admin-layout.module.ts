@@ -3,10 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { ClipboardModule } from 'ngx-clipboard';
-
-
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { InfoComponent } from '../../pages/info/info.component';
@@ -18,7 +15,6 @@ import { IndicatorsComponent } from 'src/app/pages/indicators/indicators.compone
 import { CompareComponent } from 'src/app/pages/compare-data/compare-data.component';
 import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
 import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
-// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -43,7 +39,7 @@ import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
 })
 
 export class AdminLayoutModule {}
-// group-domain.model.ts
+
 
 export interface Group {
   name: string;

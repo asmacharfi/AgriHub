@@ -12,7 +12,7 @@ export class FiltreComponent implements OnInit {
   receivedIndex: number;
   fetchedData: any[];
   currentPage = 1;
-  pageSize = 9; // Number of items per page
+  pageSize = 9;
   totalPages: number;
   pages: number[] = [];
   currentPageData: any[];
