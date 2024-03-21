@@ -14,7 +14,6 @@ import { FiltreComponent } from 'src/app/pages/filtre/filtre.component';
 import { IndicatorsComponent } from 'src/app/pages/indicators/indicators.component';
 import { CompareComponent } from 'src/app/pages/compare-data/compare-data.component';
 import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
-import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { Filtrev2Component } from 'src/app/pages/filtrev2/filtrev2.component';
     IndicatorsComponent,
     CompareComponent,
     VisualizationComponent,
-    Filtrev2Component,
     MapsComponent
   ]
 })

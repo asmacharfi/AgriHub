@@ -5,6 +5,9 @@
     </div>
   </div>
 </div>
+
+<button (click)="addFilter()">Add Filter</button>
+
 <div class="compare-data-container">
   <div class="col-4 year-range-picker">
     <label for="yearRange">Select a timerange</label>
@@ -28,25 +31,26 @@
     </div>
   </div>
   
-  <div class="filter-container">
+  <!-- Filter containers -->
+  <div *ngFor="let filter of filters" class="filter-container">
     <div class="filter-group">
       <label>Groups</label>
-      <select [(ngModel)]="selectedGroup" (change)="onGroupChange()">
+      <select [(ngModel)]="filter.selectedGroup" (change)="onGroupChange()">
         <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
       </select>
     </div>
   
-    <div class="filter-group" *ngIf="selectedGroup">
+    <div class="filter-group" *ngIf="filter.selectedGroup">
       <label>Domains</label>
-      <select [(ngModel)]="selectedDomain" (change)="onDomainChange()">
-        <option *ngFor="let domain of selectedGroup.domains" [ngValue]="domain">{{domain.name}}</option>
+      <select [(ngModel)]="filter.selectedDomain" (change)="onDomainChange()">
+        <option *ngFor="let domain of filter.selectedGroup.domains" [ngValue]="domain">{{domain.name}}</option>
       </select>
     </div>
   
-    <div class="filter-group" *ngIf="selectedDomain">
+    <div class="filter-group" *ngIf="filter.selectedDomain">
       <label>Area</label>
       <select>
-        <option *ngFor="let area of selectedDomain.areas">{{area}}</option>
+        <option *ngFor="let area of filter.selectedDomain.areas">{{area}}</option>
       </select>
   
       <label>Element</label>
@@ -60,7 +64,4 @@
       </select>
     </div>
   </div>
-  
-  <!-- Bouton pour lancer la comparaison 
-  <button (click)="compareData()">Compare Data</button>-->
 </div>

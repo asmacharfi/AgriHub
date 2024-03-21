@@ -10,7 +10,12 @@ export class CompareComponent {
     lower: 1961,
     upper: 2050
   };
- 
+  filters: any[] = []; // Array to hold filter containers
+
+  // Method to add a new filter container
+  addFilter() {
+    this.filters.push({}); // Push an empty object to the filters array
+  }
   groups: Group[] = [
     {
       name: 'Land, Inputs and Sustainability',
