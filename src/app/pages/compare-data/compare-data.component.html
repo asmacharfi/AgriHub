@@ -1,56 +1,48 @@
 <div class="header pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
-      <!-- Header content here if needed -->
+      <!-- Header content here -->
     </div>
   </div>
 </div>
-
-<button (click)="addFilter()">Add Filter</button>
-
 <div class="compare-data-container">
-  <div class="col-4 year-range-picker">
-    <label for="yearRange">Select a timerange</label>
-    <div class="slider-container">
-      <input type="range" class="slider" id="lower" 
-             min="1961" max="2050" 
-             [(ngModel)]="yearRange.lower"
-             (input)="onInput($event, 'lower')"/>
-      <input type="range" class="slider" id="upper" 
-             min="1961" max="2050" 
-             [(ngModel)]="yearRange.upper"
-             (input)="onInput($event, 'upper')"/>
-      <div class="slider-track"></div>
-      <div class="slider-range" [ngStyle]="{'left.%': getLeftPercent(), 'right.%': getRightPercent()}"></div>
-      <div class="slider-thumb slider-thumb-lower" [ngStyle]="{'left.%': getLeftPercent()}"></div>
-      <div class="slider-thumb slider-thumb-upper" [ngStyle]="{'left.%': 100 - getRightPercent()}"></div>
-    </div>
-    <div class="year-labels">
-      <span>{{ yearRange.lower }}</span>
-      <span>{{ yearRange.upper }}</span>
+  <div class="title">
+    <h1>Compare Data</h1>
+  </div>
+  <button class="btn" (click)="addFilter()">Add Filter</button>
+  <form>
+    <h3>Select a timerange</h3>
+    <div class="container">
+      <div>
+        <label for="startYear"> Année de début :</label>
+        <input type="number" id="startYear" [(ngModel)]="startYear" min="1961" max="2030" name="startYear">
+      </div>
+      <div>
+        <label for="endYear"> Année de fin :</label>
+        <input type="number" id="endYear" [(ngModel)]="endYear" min="1961" max="2030" name="endYear">
+      </div>
     </div>
   </div>
   
-  <!-- Filter containers -->
-  <div *ngFor="let filter of filters" class="filter-container">
+  <div class="filter-container">
     <div class="filter-group">
       <label>Groups</label>
-      <select [(ngModel)]="filter.selectedGroup" (change)="onGroupChange()">
+      <select [(ngModel)]="selectedGroup" (change)="onGroupChange()">
         <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
       </select>
     </div>
   
-    <div class="filter-group" *ngIf="filter.selectedGroup">
+    <div class="filter-group" *ngIf="selectedGroup">
       <label>Domains</label>
-      <select [(ngModel)]="filter.selectedDomain" (change)="onDomainChange()">
-        <option *ngFor="let domain of filter.selectedGroup.domains" [ngValue]="domain">{{domain.name}}</option>
+      <select [(ngModel)]="selectedDomain" (change)="onDomainChange()">
+        <option *ngFor="let domain of selectedGroup.domains" [ngValue]="domain">{{domain.name}}</option>
       </select>
     </div>
   
-    <div class="filter-group" *ngIf="filter.selectedDomain">
+    <div class="filter-group" *ngIf="selectedDomain">
       <label>Area</label>
       <select>
-        <option *ngFor="let area of filter.selectedDomain.areas">{{area}}</option>
+        <option *ngFor="let area of selectedDomain.areas">{{area}}</option>
       </select>
   
       <label>Element</label>
@@ -64,4 +56,7 @@
       </select>
     </div>
   </div>
+  
+  <!-- Bouton pour lancer la comparaison 
+  <button (click)="compareData()">Compare Data</button>-->
 </div>
