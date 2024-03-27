@@ -1,77 +1,24 @@
-/* Variables */
-$filter-bg: #f8f9fa;
-
-/* General Styles */
 .header {
   background-color: #1e6383;
 }
 
-/* Slider Styles */
-.slider-container {
-  position: relative;
-  width: 100%;
-}
-
-.slider {
-  appearance: none;
-  width: 100%;
-  background: transparent;
-  position: absolute;
-  z-index: 2;
-  outline: none;
-}
-
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  position: relative;
-  z-index: 3;
-  width: 25px;
-  height: 25px;
-  border: 1px solid #000;
-  background: #fff;
-  cursor: pointer;
-  border-radius: 50%;
-  margin-top: -10px;
-}
-
-.slider-track,
-.slider-range {
-  position: absolute;
-  width: 100%;
-  height: 10px;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.slider-track {
-  background: #ddd;
-}
-
-.slider-range {
-  background: #007bff;
-}
-
-/* Year Labels */
-.year-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 35px;
-}
-
-.year-labels span {
-  font-size: 14px;
-}
-
-/* Filter Container */
 .filter-container {
-  background-color: $filter-bg;
   display: flex;
-  flex-wrap: wrap; /* Allow flex items to wrap */
+  flex-wrap: wrap;
   gap: 10px;
-  padding: 15px; /* Add padding for spacing */
-  border: 3px;
+  padding: 20px;
+  margin: 10px 10px 10px 10px;
+  background-color: white;
+  position: relative;
 }
-
+.filter-container hr {
+  width: 100%;
+  margin-top: 3px;
+}
+.filter-container:hover {
+  box-shadow: 0px 0px 10px 2px rgba(107, 107, 107, 0.5);
+  background-color: #f8f9fa;
+}
 .filter-group {
   flex-grow: 0;
   margin-bottom: 15px;
@@ -87,27 +34,75 @@ $filter-bg: #f8f9fa;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: auto;
-  max-width: 200px; /* Limit max width for select boxes */
-}
-.filter-container {
-  position: relative;
+  max-width: 200px;
 }
 
 .remove-filter-button {
   position: absolute;
-  top: 5px; /* Ajustez la position verticale selon votre mise en page */
-  right: 5px; /* Ajustez la position horizontale selon votre mise en page */
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  width: 30px;
+  border: none;
+  background-color: white;
 }
 
+.container {
+  display: flex;
+}
 
-/* Responsive Adjustments */
+label{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8), 5px 5px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  border: none; 
+  background: transparent;
+  cursor: pointer;
+  float: right;
+  min-height: 10px;
+  display: flex;
+  justify-content: end;
+  margin: 20px 20px 20px 20px;
+}
+.btn:hover {
+  color: #1e6383;
+  box-shadow: -1px -1px 5px rgba(255, 255, 255, 0.6), 1px 1px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 1), inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.btnn{
+  min-height: 10px;
+  display: flex;
+  justify-content: end;
+  margin: 20px 20px 20px 20px;
+}
+
+h3{
+  margin-left: 20px;
+}
+.block-container{
+  display: block;
+}
+.title{
+  height: 100%;
+  padding: 50px;
+  margin: 10px 10px 10px 10px;
+  background-color: white;
+}
 @media (max-width: 768px) {
   .filter-container {
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 10px;
   }
 
   .filter-group {
-    margin-left: 0; /* Remove left margin on small screens */
+    margin-left: 0;
   }
 
   .filter-group select {
