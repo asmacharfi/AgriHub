@@ -8,8 +8,11 @@ export class CompareComponent {
   startYear: number;
   endYear: number;
   filters: any[] = [];
+  showChart = false;
   
-  
+  onCompareData() {
+    this.showChart = true;
+  }
   addFilter() {
     this.filters.push({}); 
   }
@@ -47,6 +50,7 @@ export class CompareComponent {
   }
   compareData() {
   }
+ 
 }
 export interface Group {
   name: string;

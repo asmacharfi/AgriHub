@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import Chart from 'chart.js';
+
 
 import {
   chartOptions,
@@ -9,18 +10,26 @@ import {
 } from "../../variables/charts";
 
 
+
 @Component({
-  selector: 'app-visualization',
-  templateUrl: './visualization.component.html',
-  styleUrls: ['./visualization.component.scss']
+  selector: 'app-charts',
+  templateUrl: './charts.component.html',
+  styleUrls: ['./charts.component.scss']
 })
-export class VisualizationComponent implements OnInit {
+export class ChartsComponent implements OnInit {
 
   public datasets: any;
   public data: any;
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  
+  displayChart = false; // Initially hide the chart
+
+  // Method to toggle the chart display
+  toggleChart() {
+    this.displayChart = !this.displayChart;
+  }
 
   ngOnInit() {
 

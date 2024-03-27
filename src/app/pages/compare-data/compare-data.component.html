@@ -57,5 +57,6 @@
   </div>
 </div>
 <div class="btnn">
-  <button class="btn">Compare Data</button>
+  <button class="btn" (click)="onCompareData()" >Compare Data</button>
 </div>
+<app-charts *ngIf="showChart"></app-charts>
