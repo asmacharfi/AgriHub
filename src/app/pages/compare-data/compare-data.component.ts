@@ -5,11 +5,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./compare-data.component.scss']
 })
 export class CompareComponent {
-  yearRange = {
-    lower: 1961,
-    upper: 2050
-  };
- 
+  startYear: number;
+  endYear: number;
+  filters: any[] = [];
+  
+  
+  addFilter() {
+    this.filters.push({}); 
+  }
+  removeFilter(index: number) {
+    this.filters.splice(index, 1);
+  }
+  
   groups: Group[] = [
     {
       name: 'Land, Inputs and Sustainability',
