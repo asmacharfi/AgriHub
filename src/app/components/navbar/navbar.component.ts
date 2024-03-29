@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,13 @@ export class NavbarComponent implements OnInit {
   public location: Location;
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
+  }
+  isSticky: boolean = false;
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    // Changez "100" à la valeur de défilement où vous voulez que le sticky s'active
+    this.isSticky = window.scrollY > 100;
   }
 
   ngOnInit() {

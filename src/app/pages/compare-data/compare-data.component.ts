@@ -9,17 +9,6 @@ export class CompareComponent {
   endYear: number;
   filters: any[] = [];
   showChart = false;
-  
-  onCompareData() {
-    this.showChart = true;
-  }
-  addFilter() {
-    this.filters.push({}); 
-  }
-  removeFilter(index: number) {
-    this.filters.splice(index, 1);
-  }
-  
   groups: Group[] = [
     {
       name: 'Land, Inputs and Sustainability',
@@ -43,10 +32,23 @@ export class CompareComponent {
   ];
   selectedGroup: Group | null = null;
   selectedDomain: Domain | null = null;
-  onGroupChange() {
-    this.selectedDomain = null; 
+  filterName = '';
+
+  onCompareData() {
+    this.showChart = true;
   }
-  onDomainChange() {
+  addFilter() {
+    this.filters.push({}); 
+  }
+  removeFilter(index: number) {
+    this.filters.splice(index, 1);
+  }
+  onGroupChange(selectedGroup: string): void {
+    this.selectedDomain = null; 
+    this.filterName = selectedGroup;
+  }
+  onDomainChange(filter: any): void {
+   
   }
   compareData() {
   }
