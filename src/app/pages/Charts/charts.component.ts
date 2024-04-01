@@ -1,69 +1,80 @@
 import {Component, OnInit} from '@angular/core';
-import Chart from 'chart.js';
-
-
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2
-} from "../../variables/charts";
-
-
+import { Chart } from 'angular-highcharts';
 
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss']
 })
-export class ChartsComponent implements OnInit {
+export class ChartsComponent {
 
-  public datasets: any;
-  public data: any;
-  public salesChart;
-  public clicked: boolean = true;
-  public clicked1: boolean = false;
+  title = 'angular-charts';
+  lineChart=new Chart({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Patients'
+    },
+    credits: {
+      enabled: false
+    },
+    series: [
+      {
+        name: 'Patients admitted',
+        data: [10, 2, 3,6,9,17,20,10,5,2,16]
+      } as any
+    ]
+
+  })
+
+  pieChart=new Chart({
+    chart: {
+      type: 'pie',
+      plotShadow: false,
+    },
   
-  displayChart = false; // Initially hide the chart
-
-  // Method to toggle the chart display
-  toggleChart() {
-    this.displayChart = !this.displayChart;
-  }
-
-  ngOnInit() {
-
-    this.datasets = [
-      [0, 20, 10, 30, 15, 40, 20, 60, 60],
-      [0, 20, 5, 25, 10, 30, 15, 40, 40]
-    ];
-    this.data = this.datasets[0];
-
-
-    var chartOrders = document.getElementById('chart-orders');
-
-    parseOptions(Chart, chartOptions());
-
-
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
-  }
-
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
-  }
-
+    credits: {
+      enabled: false,
+    },
+  
+    plotOptions: {
+      pie: {
+        innerSize: '99%',
+        borderWidth: 10,
+        borderColor: '',
+        slicedOffset: 10,
+        dataLabels: {
+          connectorWidth: 0,
+        },
+      },
+    },
+  
+    title: {
+      verticalAlign: 'middle',
+      floating: true,
+      text: 'Diseases',
+    },
+  
+    legend: {
+      enabled: false,
+    },
+  
+    series: [
+      {
+        type: 'pie',
+        data: [
+          { name: 'COVID 19', y: 1, color: '#eeeeee' },
+  
+          { name: 'HIV/AIDS', y: 2, color: '#393e46' },
+  
+          { name: 'EBOLA', y: 3, color: '#00adb5' },
+          { name: 'DISPORA', y: 4, color: '#eeeeee' },
+          { name: 'DIABETES', y: 5, color: '#506ef9' },
+        ],
+      },
+    ],
+  })
 }
+
+

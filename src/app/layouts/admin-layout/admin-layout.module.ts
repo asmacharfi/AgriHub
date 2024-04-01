@@ -16,6 +16,7 @@ import { CompareComponent } from 'src/app/pages/compare-data/compare-data.compon
 import { VisualizationComponent } from 'src/app/pages/visualization/visualization.component';
 import { ChartsComponent } from 'src/app/pages/charts/charts.component';
 import { DataTabsComponent } from 'src/app/pages/data-tabs/data-tabs.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { DataTabsComponent } from 'src/app/pages/data-tabs/data-tabs.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    HighchartsChartModule,
     ClipboardModule
   ],
   declarations: [
