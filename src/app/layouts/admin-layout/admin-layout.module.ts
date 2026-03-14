@@ -17,6 +17,7 @@ import { VisualizationComponent } from 'src/app/pages/visualization/visualizatio
 import { ChartsComponent } from 'src/app/pages/charts/charts.component';
 import { DataTabsComponent } from 'src/app/pages/data-tabs/data-tabs.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     HttpClientModule,
     NgbModule,
     HighchartsChartModule,
+    ChartModule,
     ClipboardModule
   ],
   declarations: [
